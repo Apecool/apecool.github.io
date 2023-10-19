@@ -1,0 +1,68 @@
+/* Style the links inside the navigation bar */
+.topnav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+  overflow: hidden;
+}
+
+.topnav li {
+  float: left;
+}
+
+.topnav li a {
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  color: white;
+}
+
+/* Change the color of links on hover */
+.topnav li a:hover {
+  background-color: #111;
+}
+
+/* Add a color to the active/current link */
+.topnav li a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.content {
+  width: 60%;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.content h1 {
+  font-size: 24px;
+}
+
+.content p {
+  font-size: 18px;
+}
+
+.content button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.container img {
+  width: 30%;
+}

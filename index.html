@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Apecool — 数学形式化与学习档案</title>
+<title>Apecool — Mathematical Formalization & Archive</title>
 <style>
-  :root{--bg:#0f1115;--card:#191d24;--line:#2b313b;--fg:#e8eaed;--muted:#9aa3b2;--accent:#7c9cff;--accent2:#4ec9a6;}
+  :root{--bg:#0f1115;--card:#191d24;--line:#2b313b;--fg:#e8eaed;--muted:#9aa3b2;--accent:#7c9cff;--accent2:#4ec9a6}
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
   .wrap{max-width:860px;margin:0 auto;padding:48px 20px 80px}
@@ -25,42 +25,85 @@
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
   .grid .card{margin:0}
   .note{background:#191d24;border-left:3px solid var(--accent2);padding:12px 16px;color:var(--muted);font-size:14px;border-radius:0 8px 8px 0;margin:20px 0}
-  code{background:#252b35;padding:1px 6px;border-radius:4px;font-size:13px}
   footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+  /* language toggle: default English, 中文 via :target */
+  .lang{font-size:13px;color:var(--muted)}
+  #zh,#en{display:none}
+  #en:target ~ .en,#zh:target ~ .zh{display:block}
+  #en:target ~ .en ~ .lang #link-en,#zh:target ~ .zh ~ .lang #link-zh{color:var(--fg)}
+  body:has(#en:target) .en{display:block}
+  body:has(#zh:target) .zh{display:block}
+  body:has(#zh:target) .en{display:none}
+  body:has(#en:target) .zh{display:none}
+  .en{display:block}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <h1>Apecool</h1>
-  <p class="sub">独立开发者 · 主线是数学形式化（Lean 4 + Mathlib），这里也存放早期学习档案。</p>
+  <span id="en"></span><span id="zh"></span>
+  <p class="lang" style="text-align:right;margin:0 0 8px"><a href="#en">English</a> · <a href="#zh">中文</a></p>
 
-  <h2>现在在做</h2>
-  <a class="card" href="https://github.com/Apecool/math-journey">
-    <h3>math-journey <span class="tag active">2026-11 启动 · 重点项目</span></h3>
-    <p>数学视野拓展 × Lean 形式化。用四条主线（公理化 / 分析 / 代数 / 逻辑）给概念定位，再把证明交给内核检查。内核是最终裁判，禁 sorry-laundering。</p>
-  </a>
-  <a class="card" href="https://github.com/Apecool/knowledge-base-assistant">
-    <h3>knowledge-base-assistant <span class="tag keep">持续更新</span></h3>
-    <p>FastAPI + Vue 3 的 RAG 知识管理应用：多格式文档上传、语义搜索、多轮对话、SSE 流式输出。</p>
-  </a>
+  <div class="en">
+    <h1>Apecool</h1>
+    <p class="sub">Independent developer. Main track: mathematical formalization (Lean 4 + Mathlib). Older practice projects are archived here too.</p>
 
-  <div class="note">「能编译」不等于「证明对了」。早期写 Web 时就知道认证没接上；现在做形式化，把这种直觉变成了硬约束。</div>
+    <h2>Currently working on</h2>
+    <a class="card" href="https://github.com/Apecool/math-journey">
+      <h3>math-journey <span class="tag active">Started 2026-11 · main focus</span></h3>
+      <p>Mathematical vision × Lean formalization. Four axes — axioms / analysis / algebra / logic — locate every concept. Proofs are checked by the kernel; no sorry-laundering.</p>
+    </a>
+    <a class="card" href="https://github.com/Apecool/knowledge-base-assistant">
+      <h3>knowledge-base-assistant <span class="tag keep">Ongoing</span></h3>
+      <p>RAG knowledge app (FastAPI + Vue 3): multi-format document upload, semantic search, multi-turn chat, SSE streaming.</p>
+    </a>
 
-  <h2>学习档案 <span class="tag archive">已停止维护</span></h2>
-  <p class="sub" style="margin-top:-6px">2023–2024 年的前后端练习项目，均已停止维护，不建议直接使用或二次开发。</p>
-  <div class="grid">
-    <a class="card" href="https://github.com/Apecool/basicblog"><h3>basicblog</h3><p>Express + Prisma + JWT + React/Vite 全栈博客</p></a>
-    <a class="card" href="https://github.com/Apecool/basicphoto"><h3>basicphoto</h3><p>Express + Prisma + React 图片标注与标签管理</p></a>
-    <a class="card" href="https://github.com/Apecool/memberonly"><h3>memberonly</h3><p>Express + EJS + Passport-Local + PostgreSQL 认证</p></a>
-    <a class="card" href="https://github.com/Apecool/fileuploader"><h3>fileuploader</h3><p>Express + multer + Prisma 文件上传与元数据管理</p></a>
-    <a class="card" href="https://github.com/Apecool/messageboard"><h3>messageboard</h3><p>Express + EJS 最小留言板（内存存储）</p></a>
-    <a class="card" href="https://github.com/Apecool/cvpage"><h3>cvpage</h3><p>React + Vite 组件化单页简历</p></a>
-    <a class="card" href="https://github.com/Apecool/deepseek-chat-app"><h3>deepseek-chat-app</h3><p>Flask + DeepSeek API 最小聊天应用</p></a>
+    <div class="note">"It compiles" does not mean "the proof is right". Early web work taught me to notice what isn't wired up; formalization turns that instinct into a hard constraint.</div>
+
+    <h2>Archive <span class="tag archive">Unmaintained</span></h2>
+    <p class="sub" style="margin-top:-6px">2023–2024 full-stack practice projects. Unmaintained — not recommended for use or further development.</p>
+    <div class="grid">
+      <a class="card" href="https://github.com/Apecool/basicblog"><h3>basicblog</h3><p>Express + Prisma + JWT + React/Vite full-stack blog</p></a>
+      <a class="card" href="https://github.com/Apecool/basicphoto"><h3>basicphoto</h3><p>Express + Prisma + React image annotation &amp; tagging</p></a>
+      <a class="card" href="https://github.com/Apecool/memberonly"><h3>memberonly</h3><p>Express + EJS + Passport-Local + PostgreSQL auth</p></a>
+      <a class="card" href="https://github.com/Apecool/fileuploader"><h3>fileuploader</h3><p>Express + multer + Prisma file upload &amp; metadata</p></a>
+      <a class="card" href="https://github.com/Apecool/messageboard"><h3>messageboard</h3><p>Express + EJS minimal message board (in-memory)</p></a>
+      <a class="card" href="https://github.com/Apecool/cvpage"><h3>cvpage</h3><p>React + Vite componentized single-page CV</p></a>
+      <a class="card" href="https://github.com/Apecool/deepseek-chat-app"><h3>deepseek-chat-app</h3><p>Flask + DeepSeek API minimal chat app</p></a>
+    </div>
+
+    <footer><a href="https://github.com/Apecool">GitHub</a> · <a href="https://github.com/Apecool/math-journey">math-journey</a> · <a href="https://github.com/Apecool/knowledge-base-assistant">knowledge-base-assistant</a></footer>
   </div>
 
-  <footer>
-    <a href="https://github.com/Apecool">GitHub 主页</a> · <a href="https://github.com/Apecool/math-journey">math-journey</a> · <a href="https://github.com/Apecool/knowledge-base-assistant">knowledge-base-assistant</a>
-  </footer>
+  <div class="zh">
+    <h1>Apecool</h1>
+    <p class="sub">独立开发者，主线是数学形式化（Lean 4 + Mathlib），这里也存放早期练习项目。</p>
+
+    <h2>现在在做</h2>
+    <a class="card" href="https://github.com/Apecool/math-journey">
+      <h3>math-journey <span class="tag active">2026-11 启动 · 重点项目</span></h3>
+      <p>数学视野拓展 × Lean 形式化。用四条主线（公理化 / 分析 / 代数 / 逻辑）给概念定位，再把证明交给内核检查。内核是最终裁判，禁 sorry-laundering。</p>
+    </a>
+    <a class="card" href="https://github.com/Apecool/knowledge-base-assistant">
+      <h3>knowledge-base-assistant <span class="tag keep">持续更新</span></h3>
+      <p>FastAPI + Vue 3 的 RAG 知识管理应用：多格式文档上传、语义搜索、多轮对话、SSE 流式输出。</p>
+    </a>
+
+    <div class="note">「能编译」不等于「证明对了」。早期写 Web 时就知道哪些地方没接上；现在做形式化，把这种直觉变成了硬约束。</div>
+
+    <h2>学习档案 <span class="tag archive">已停止维护</span></h2>
+    <p class="sub" style="margin-top:-6px">2023–2024 年的前后端练习项目，均已停止维护，不建议直接使用或二次开发。</p>
+    <div class="grid">
+      <a class="card" href="https://github.com/Apecool/basicblog"><h3>basicblog</h3><p>Express + Prisma + JWT + React/Vite 全栈博客</p></a>
+      <a class="card" href="https://github.com/Apecool/basicphoto"><h3>basicphoto</h3><p>Express + Prisma + React 图片标注与标签管理</p></a>
+      <a class="card" href="https://github.com/Apecool/memberonly"><h3>memberonly</h3><p>Express + EJS + Passport-Local + PostgreSQL 认证</p></a>
+      <a class="card" href="https://github.com/Apecool/fileuploader"><h3>fileuploader</h3><p>Express + multer + Prisma 文件上传与元数据管理</p></a>
+      <a class="card" href="https://github.com/Apecool/messageboard"><h3>messageboard</h3><p>Express + EJS 最小留言板（内存存储）</p></a>
+      <a class="card" href="https://github.com/Apecool/cvpage"><h3>cvpage</h3><p>React + Vite 组件化单页简历</p></a>
+      <a class="card" href="https://github.com/Apecool/deepseek-chat-app"><h3>deepseek-chat-app</h3><p>Flask + DeepSeek API 最小聊天应用</p></a>
+    </div>
+
+    <footer><a href="https://github.com/Apecool">GitHub 主页</a> · <a href="https://github.com/Apecool/math-journey">math-journey</a> · <a href="https://github.com/Apecool/knowledge-base-assistant">knowledge-base-assistant</a></footer>
+  </div>
 </div>
 </body>
 </html>

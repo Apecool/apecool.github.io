@@ -26,17 +26,13 @@
   .grid .card{margin:0}
   .note{background:#191d24;border-left:3px solid var(--accent2);padding:12px 16px;color:var(--muted);font-size:14px;border-radius:0 8px 8px 0;margin:20px 0}
   footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
-  /* language toggle: default English, 中文 via :target */
+  /* language toggle: default English; #zh hash shows Chinese */
   .lang{font-size:13px;color:var(--muted)}
-  #zh,#en{display:none}
-  #en:target ~ .en,#zh:target ~ .zh{display:block}
-  #en:target ~ .en ~ .lang #link-en,#zh:target ~ .zh ~ .lang #link-zh{color:var(--fg)}
-  body:has(#en:target) .en{display:block}
-  body:has(#zh:target) .zh{display:block}
-  body:has(#zh:target) .en{display:none}
-  body:has(#en:target) .zh{display:none}
   .en{display:block}
-</style>
+  .zh{display:none}
+  body:has(#zh:target) .en{display:none}
+  body:has(#zh:target) .zh{display:block}
+  </style>
 </head>
 <body>
 <div class="wrap">
